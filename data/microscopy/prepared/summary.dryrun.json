@@ -1,0 +1,64 @@
+{
+  "resolution_px": [
+    896,
+    896
+  ],
+  "format": "PNG",
+  "colour": "RGB",
+  "split_fractions": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "seed": 20260709,
+  "n_images": 840,
+  "n_groups": 28,
+  "tally": {
+    "train": {
+      "0": 270,
+      "1": 90,
+      "3": 30,
+      "7": 180
+    },
+    "val": {
+      "0": 60,
+      "1": 30,
+      "7": 60
+    },
+    "test": {
+      "0": 60,
+      "1": 30,
+      "7": 30
+    }
+  },
+  "augmentation_config": {
+    "applied_at": "train_time_only",
+    "rationale": "val/test must stay clean; on-disk set stays deterministic and reproducible.",
+    "transforms": {
+      "random_rotation_deg": 180,
+      "random_horizontal_flip": true,
+      "random_vertical_flip": true,
+      "colour_jitter": {
+        "brightness": 0.2,
+        "contrast": 0.2,
+        "saturation": 0.1,
+        "hue": 0.02
+      },
+      "random_resized_crop": {
+        "scale": [
+          0.8,
+          1.0
+        ],
+        "target_px": 896
+      },
+      "stain_jitter_note": "mild HED/colour jitter approximates Giemsa staining variation across labs",
+      "gaussian_blur_p": 0.1
+    },
+    "not_applied_to": [
+      "val",
+      "test"
+    ]
+  },
+  "leakage_policy": "grouped-by-slide/patient; whole group -> one split",
+  "dry_run": true
+}

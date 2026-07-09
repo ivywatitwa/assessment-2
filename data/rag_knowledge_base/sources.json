@@ -1,0 +1,280 @@
+{
+  "manifest_version": "1.0",
+  "generated": "2026-07-09",
+  "description": "Provenance manifest for the veterinary RAG grounding corpus (data/rag_knowledge_base/kb_chunks.jsonl). Every source below was located and fetched during curation; no citation, DOI or URL was invented. verification=verified_fetched means the full text was retrieved and read during curation; verified_metadata_only means only existence/metadata was confirmed.",
+  "n_sources": 20,
+  "n_chunks": 71,
+  "sources": [
+    {
+      "source_id": "cfsph_theileriosis",
+      "citation_apa7": "Center for Food Security and Public Health. (2019). Theileriosis in cattle and small ruminants (Theileria parva: East Coast fever, Corridor disease; Theileria annulata: Tropical theileriosis). Iowa State University. Retrieved 2026-07-09, from https://www.cfsph.iastate.edu/Factsheets/pdfs/theileriosis_theileria_parva_and_theileria_annulata.pdf",
+      "type": "guideline",
+      "url": "https://www.cfsph.iastate.edu/Factsheets/pdfs/theileriosis_theileria_parva_and_theileria_annulata.pdf",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ecf-006"
+      ]
+    },
+    {
+      "source_id": "kihu_2015_ppr",
+      "citation_apa7": "Kihu, S. M., Gachohi, J. M., Ndungu, E. K., Gitao, G. C., Bebora, L. C., John, N. M., Wairire, G. G., Maingi, N., Wahome, R. G., & Ireri, R. (2015). Sero-epidemiology of Peste des petits ruminants virus infection in Turkana County, Kenya. BMC Veterinary Research, 11, 87. https://doi.org/10.1186/s12917-015-0401-1",
+      "type": "peer_reviewed",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4396631/",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ppr-006"
+      ]
+    },
+    {
+      "source_id": "mbindyo_2020_mastitis",
+      "citation_apa7": "Mbindyo, C. M., Gitao, G. C., & Mulei, C. M. (2020). Prevalence, etiology, and risk factors of mastitis in dairy cattle in Embu and Kajiado Counties, Kenya. Veterinary Medicine International, 2020, 8831172. https://doi.org/10.1155/2020/8831172",
+      "type": "peer_reviewed",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7424489/",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-mast-006"
+      ]
+    },
+    {
+      "source_id": "merck_anaplasmosis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Anaplasmosis in ruminants. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/circulatory-system/blood-parasites/anaplasmosis-in-ruminants",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/circulatory-system/blood-parasites/anaplasmosis-in-ruminants",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-anap-001",
+        "vet-kb-anap-002",
+        "vet-kb-anap-003",
+        "vet-kb-anap-004",
+        "vet-kb-anap-005"
+      ]
+    },
+    {
+      "source_id": "merck_babesiosis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Babesiosis in animals. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/circulatory-system/blood-parasites/babesiosis-in-animals",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/circulatory-system/blood-parasites/babesiosis-in-animals",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-babc-001",
+        "vet-kb-babc-002",
+        "vet-kb-babc-003",
+        "vet-kb-babc-004",
+        "vet-kb-babc-005",
+        "vet-kb-cbab-001",
+        "vet-kb-cbab-002",
+        "vet-kb-cbab-003"
+      ]
+    },
+    {
+      "source_id": "merck_ccpp",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Mycoplasma pneumonias in goats. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-sheep-and-goats/mycoplasma-pneumonias-in-goats",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-sheep-and-goats/mycoplasma-pneumonias-in-goats",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ccpp-001",
+        "vet-kb-ccpp-002",
+        "vet-kb-ccpp-003",
+        "vet-kb-ccpp-004"
+      ]
+    },
+    {
+      "source_id": "merck_coccidiosis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Overview of coccidiosis in animals. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/digestive-system/coccidiosis/overview-of-coccidiosis-in-animals",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/digestive-system/coccidiosis/overview-of-coccidiosis-in-animals",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-cocc-001",
+        "vet-kb-cocc-002",
+        "vet-kb-cocc-003",
+        "vet-kb-cocc-004"
+      ]
+    },
+    {
+      "source_id": "merck_ehrlichiosis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Ehrlichiosis in dogs. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/infectious-diseases/rickettsial-diseases-in-dogs/ehrlichiosis-in-dogs",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/infectious-diseases/rickettsial-diseases-in-dogs/ehrlichiosis-in-dogs",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ehrl-001",
+        "vet-kb-ehrl-002",
+        "vet-kb-ehrl-003",
+        "vet-kb-ehrl-004"
+      ]
+    },
+    {
+      "source_id": "merck_feline_uri",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Feline respiratory disease complex. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-small-animals/feline-respiratory-disease-complex",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-small-animals/feline-respiratory-disease-complex",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-furd-001",
+        "vet-kb-furd-002",
+        "vet-kb-furd-003",
+        "vet-kb-furd-004"
+      ]
+    },
+    {
+      "source_id": "merck_gi_overview",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Overview of gastrointestinal parasites of ruminants. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/digestive-system/gastrointestinal-parasites-of-ruminants/overview-of-gastrointestinal-parasites-of-ruminants",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/digestive-system/gastrointestinal-parasites-of-ruminants/overview-of-gastrointestinal-parasites-of-ruminants",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-haem-003",
+        "vet-kb-haem-004"
+      ]
+    },
+    {
+      "source_id": "merck_gi_smallrum",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Common gastrointestinal parasites of small ruminants. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/digestive-system/gastrointestinal-parasites-of-ruminants/common-gastrointestinal-parasites-of-small-ruminants",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/digestive-system/gastrointestinal-parasites-of-ruminants/common-gastrointestinal-parasites-of-small-ruminants",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-haem-001",
+        "vet-kb-haem-002"
+      ]
+    },
+    {
+      "source_id": "merck_haemoplasma",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Hemotropic mycoplasma infections in animals. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/circulatory-system/blood-parasites/hemotropic-mycoplasma-infections-in-animals",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/circulatory-system/blood-parasites/hemotropic-mycoplasma-infections-in-animals",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-hmpl-001",
+        "vet-kb-hmpl-002",
+        "vet-kb-hmpl-003"
+      ]
+    },
+    {
+      "source_id": "merck_lsd",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Lumpy skin disease in cattle. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/integumentary-system/pox-diseases/lumpy-skin-disease-in-cattle",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/integumentary-system/pox-diseases/lumpy-skin-disease-in-cattle",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-lsd-001",
+        "vet-kb-lsd-002",
+        "vet-kb-lsd-003",
+        "vet-kb-lsd-004",
+        "vet-kb-lsd-005"
+      ]
+    },
+    {
+      "source_id": "merck_mastitis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Mastitis in cattle. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/reproductive-system/mastitis-in-large-animals/mastitis-in-cattle",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/reproductive-system/mastitis-in-large-animals/mastitis-in-cattle",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-mast-001",
+        "vet-kb-mast-002",
+        "vet-kb-mast-003",
+        "vet-kb-mast-004",
+        "vet-kb-mast-005"
+      ]
+    },
+    {
+      "source_id": "merck_parvo",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Canine parvovirus infection (parvoviral enteritis in dogs). In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/digestive-system/infectious-diseases-of-the-gastrointestinal-tract-in-small-animals/canine-parvovirus-infection-parvoviral-enteritis-in-dogs",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/digestive-system/infectious-diseases-of-the-gastrointestinal-tract-in-small-animals/canine-parvovirus-infection-parvoviral-enteritis-in-dogs",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-cpv-001",
+        "vet-kb-cpv-002",
+        "vet-kb-cpv-003",
+        "vet-kb-cpv-004"
+      ]
+    },
+    {
+      "source_id": "merck_ppr",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Peste des petits ruminants. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/generalized-conditions/peste-des-petits-ruminants/peste-des-petits-ruminants",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/generalized-conditions/peste-des-petits-ruminants/peste-des-petits-ruminants",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ppr-001",
+        "vet-kb-ppr-002",
+        "vet-kb-ppr-003",
+        "vet-kb-ppr-004",
+        "vet-kb-ppr-005"
+      ]
+    },
+    {
+      "source_id": "merck_theileriosis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Theileriosis in animals. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/circulatory-system/blood-parasites/theileriosis-in-animals",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/circulatory-system/blood-parasites/theileriosis-in-animals",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ecf-001",
+        "vet-kb-ecf-002",
+        "vet-kb-ecf-003",
+        "vet-kb-ecf-004",
+        "vet-kb-ecf-005"
+      ]
+    },
+    {
+      "source_id": "merck_trypanosomiasis",
+      "citation_apa7": "Merck Veterinary Manual. (2022). Trypanosomiasis in animals. In Merck Veterinary Manual (online ed.). Merck & Co. Retrieved 2026-07-09, from https://www.merckvetmanual.com/circulatory-system/blood-parasites/trypanosomiasis-in-animals",
+      "type": "manual",
+      "url": "https://www.merckvetmanual.com/circulatory-system/blood-parasites/trypanosomiasis-in-animals",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ctryp-001",
+        "vet-kb-tryp-001",
+        "vet-kb-tryp-002",
+        "vet-kb-tryp-003",
+        "vet-kb-tryp-004",
+        "vet-kb-tryp-005"
+      ]
+    },
+    {
+      "source_id": "okello_2022_aat",
+      "citation_apa7": "Okello, I., Mafie, E., Eastwood, G., Nzalawahe, J., Mboera, L. E. G., & Onyoyo, S. (2022). Prevalence and associated risk factors of African animal trypanosomiasis in cattle in Lambwe, Kenya. Journal of Parasitology Research, 2022, 5984376. https://doi.org/10.1155/2022/5984376",
+      "type": "peer_reviewed",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9303511/",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-tryp-006"
+      ]
+    },
+    {
+      "source_id": "patel_2019_itm",
+      "citation_apa7": "Patel, E., Mwaura, S., Di Giulio, G., Cook, E. A. J., Lynen, G., & Toye, P. (2019). Infection and treatment method (ITM) vaccine against East Coast fever: reducing the number of doses per straw for use in smallholder dairy herds by thawing, diluting and refreezing already packaged vaccine. BMC Veterinary Research, 15, 46. https://doi.org/10.1186/s12917-019-1787-y",
+      "type": "peer_reviewed",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6357393/",
+      "access_date": "2026-07-09",
+      "verification": "verified_fetched",
+      "doc_ids": [
+        "vet-kb-ecf-007"
+      ]
+    }
+  ]
+}

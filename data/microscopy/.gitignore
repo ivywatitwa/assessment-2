@@ -1,0 +1,5 @@
+# Large downloaded/derived data — never committed
+raw/
+images/
+prepared/*.parquet
+prepared/manifest.parquet/

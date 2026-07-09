@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-07-09",
+  "spec_reference": "PROJECT_SPEC.md §2, §5",
+  "honesty_statement": "This manifest lists ONLY real, verified, publicly obtainable microscopy datasets. No synthetic microscopy images are generated or listed. Where a taxonomy class has no clean public source, this is stated explicitly rather than filled with a proxy.",
+  "resolution_target": {
+    "pixels": [896, 896],
+    "colour": "RGB",
+    "format": "PNG",
+    "justification": "MedGemma (4B/27B multimodal) inherits Gemma 3's SigLIP-400m vision encoder, which operates at a native 896x896 input. Normalising every crop to 896x896 avoids a resolution mismatch and lets the encoder run without internal rescaling. Small native crops (e.g. NIH cells ~130x130) are aspect-preserving letterbox-padded and upscaled; large field images (BBBC041 ~1600x1200, Tryp up to 1920x1080) are aspect-preserving downscaled. Padding colour is black; padding is recorded so it is never mistaken for specimen background."
+  },
+  "datasets": [
+    {
+      "id": "nih_malaria_cell",
+      "name": "NIH/NLM Malaria Cell Images Dataset (segmented cells)",
+      "verified": true,
+      "source_url": "https://data.lhncbc.nlm.nih.gov/public/Malaria/cell_images.zip",
+      "landing_page": "https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html",
+      "kaggle_mirror": "https://www.kaggle.com/datasets/iarunava/cell-images-for-detecting-malaria",
+      "licence": "U.S. National Library of Medicine / U.S. Government work. No explicit SPDX licence; NLM makes it publicly available for research. Treated as effectively public-domain for academic use. Citation of Rajaraman et al. 2018 requested.",
+      "licence_academic_ok": true,
+      "citation_apa7": "Rajaraman, S., Antani, S. K., Poostchi, M., Silamut, K., Hossain, M. A., Maude, R. J., Jaeger, S., & Thoma, G. R. (2018). Pre-trained convolutional neural networks as feature extractors toward improved malaria parasite detection in thin blood smear images. PeerJ, 6, e4568. https://doi.org/10.7717/peerj.4568",
+      "n_images": 27558,
+      "approx_download_mb": 353,
+      "native_classes": ["Parasitized", "Uninfected"],
+      "native_task": "single-cell classification (segmented thin-smear RBC crops, ~130x130 px, Giemsa, ~100x)",
+      "sha256": null,
+      "checksum_note": "NLM does not publish a checksum for cell_images.zip. Downloader records the SHA-256 it observes so re-runs can be verified against the first successful download.",
+      "mapping": {
+        "Parasitized": {"class_id": 7, "class_name": "plasmodium_falciparum", "confidence": "high", "note": "P. falciparum thin-smear infected RBCs. Pre-training proxy class."},
+        "Uninfected": {"class_id": 0, "class_name": "uninfected", "confidence": "high"}
+      },
+      "grouping_metadata": "Patient/slide ID is encoded in the filename prefix (e.g. 'C100P61ThinF_IMG_...' -> patient C100). Used as the leakage grouping key.",
+      "primary_for_classes": [7, 0]
+    },
+    {
+      "id": "bbbc041_pvivax",
+      "name": "BBBC041v1 — P. vivax (malaria) infected human blood smears",
+      "verified": true,
+      "source_url": "https://bbbc.broadinstitute.org/BBBC041",
+      "download_urls": [
+        "https://data.broadinstitute.org/bbbc/BBBC041/malaria.zip"
+      ],
+      "licence": "CC BY-NC-SA 3.0 (Jane Hung / Broad Institute).",
+      "licence_academic_ok": true,
+      "licence_caveat": "NON-COMMERCIAL + ShareAlike. Fine for an academic dissertation, but any derived model/dataset redistribution must honour NC + SA. Keep BBBC041-derived crops in a separate, clearly-flagged partition so the NC constraint can be enforced downstream.",
+      "citation_apa7": "Ljosa, V., Sokolnicki, K. L., & Carpenter, A. E. (2012). Annotated high-throughput microscopy image sets for validation. Nature Methods, 9(7), 637. https://doi.org/10.1038/nmeth.2083 (BBBC041 contributed by Hung, J., & Carpenter, A., Broad Bioimage Benchmark Collection).",
+      "n_images": 1364,
+      "approx_download_mb": 360,
+      "native_classes": ["red blood cell", "trophozoite", "ring", "schizont", "gametocyte", "leukocyte", "difficult"],
+      "native_task": "object detection (bounding boxes) on 1000x thin smears, ~1600x1200 px",
+      "sha256": null,
+      "mapping": {
+        "trophozoite|ring|schizont|gametocyte": {"class_id": 7, "class_name": "plasmodium_falciparum", "confidence": "medium", "note": "These are P. VIVAX life stages, not falciparum. Acceptable ONLY as a genus-level Plasmodium pre-training proxy; do not treat as species-accurate. Crops must be extracted from bounding boxes before use."},
+        "red blood cell": {"class_id": 0, "class_name": "uninfected", "confidence": "medium", "note": "Uninfected RBC bounding-box crops."},
+        "leukocyte|difficult": {"class_id": null, "class_name": null, "confidence": "none", "note": "No clean taxonomy mapping — excluded."}
+      },
+      "grouping_metadata": "Group by source image filename (image-level bounding boxes) to keep crops from one field together.",
+      "primary_for_classes": []
+    },
+    {
+      "id": "tryp_thick_smear",
+      "name": "Tryp — microscopy images of unstained thick blood smears for trypanosome detection",
+      "verified": true,
+      "source_url": "https://doi.org/10.6084/m9.figshare.22825787",
+      "figshare_doi": "10.6084/m9.figshare.22825787",
+      "code_repo": "https://github.com/esla/trypanosome_parasite_detection",
+      "licence": "CC BY 4.0 (dataset). Code BSD-3-Clause.",
+      "licence_academic_ok": true,
+      "citation_apa7": "Anzaku, E. T., Mohammed, M. A., Ozbulak, U., Won, J., Hong, H., Krishnamoorthy, J., Van Hoecke, S., Magez, S., Van Messem, A., & De Neve, W. (2023). Tryp: A dataset of microscopy images of unstained thick blood smears for trypanosome detection. Scientific Data, 10, 716. https://doi.org/10.1038/s41597-023-02608-y",
+      "n_images": 3178,
+      "n_images_breakdown": {"positive_annotated": 3085, "negative": 93},
+      "approx_download_mb": 1200,
+      "native_classes": ["trypanosome (bounding box)", "negative"],
+      "native_task": "object detection on UNSTAINED THICK smears; three capture resolutions (1360x1024, 1920x1080, 720x404)",
+      "sha256": null,
+      "mapping": {
+        "trypanosome": {"class_id": 1, "class_name": "trypanosoma_spp", "confidence": "medium", "note": "T. brucei brucei in a MOUSE model, UNSTAINED THICK smear. Strong domain shift vs Giemsa-stained cattle thin smears. Use as weakly-labelled proxy for class 1; flag domain in split metadata. Crops from bounding boxes."},
+        "negative": {"class_id": 0, "class_name": "uninfected", "confidence": "medium"}
+      },
+      "grouping_metadata": "Group by source frame / slide id (from figshare folder structure) to prevent tile leakage.",
+      "primary_for_classes": [1]
+    },
+    {
+      "id": "mendeley_parasite_species",
+      "name": "Microscopic Images of Parasites Species (Li & Zhang)",
+      "verified": true,
+      "source_url": "https://data.mendeley.com/datasets/38jtn4nzs6/2",
+      "mendeley_doi": "10.17632/38jtn4nzs6.2",
+      "licence": "CC BY 4.0",
+      "licence_academic_ok": true,
+      "citation_apa7": "Li, S., & Zhang, Y. (2020). Microscopic Images of Parasites Species (Version 2) [Data set]. Mendeley Data. https://doi.org/10.17632/38jtn4nzs6.2",
+      "n_images": 34298,
+      "n_images_breakdown": {"Plasmodium": 843, "Toxoplasma_gondii": 6691, "Babesia": 1173, "Leishmania": 2701, "Trypanosome": 2385, "Trichomonad": 10134, "Red_Blood_Cell": 8995, "Leukocyte": 1376},
+      "approx_download_mb": 2500,
+      "native_classes": ["Plasmodium", "Toxoplasma", "Babesia", "Leishmania", "Trypanosome", "Trichomonad", "Red Blood Cell", "Leukocyte"],
+      "native_task": "single-object classification crops, Giemsa 400x/1000x",
+      "sha256": null,
+      "mapping": {
+        "Babesia": {"class_id": 3, "class_name": "babesia_spp", "confidence": "medium", "note": "ONLY public source for Babesia (class 3). Species unspecified; likely human/mixed context, not cattle B. bovis/bigemina. Treat as proxy; supplement with Cherehani cattle slides."},
+        "Trypanosome": {"class_id": 1, "class_name": "trypanosoma_spp", "confidence": "medium", "note": "Giemsa-stained; complements the Tryp thick-smear source for class 1."},
+        "Plasmodium": {"class_id": 7, "class_name": "plasmodium_falciparum", "confidence": "low", "note": "Genus-level only; species not confirmed falciparum. Pre-training proxy."},
+        "Red_Blood_Cell": {"class_id": 0, "class_name": "uninfected", "confidence": "high", "note": "Uninfected RBC crops for the negative class."},
+        "Toxoplasma|Leishmania|Trichomonad|Leukocyte": {"class_id": null, "class_name": null, "confidence": "none", "note": "Out of taxonomy scope — excluded from the veterinary set (could seed an 'other/OOD' probe if needed)."}
+      },
+      "grouping_metadata": "No patient/slide metadata published. HIGH leakage risk: crops from one slide cannot be identified. Mitigation: treat each (species) folder as a single opaque group ('mendeley_<species>') so it lands wholly in ONE split, sacrificing cross-slide balance to avoid optimistic leakage. Documented limitation.",
+      "primary_for_classes": [3]
+    },
+    {
+      "id": "chula_parasite_egg_11",
+      "name": "Chula-ParasiteEgg-11 (ICIP 2022 Challenge)",
+      "verified": true,
+      "verified_note": "Existence and contents verified. Access is GATED: IEEE DataPort account + challenge registration required; not an anonymous direct download.",
+      "source_url": "https://ieee-dataport.org/competitions/parasitic-egg-detection-and-classification-microscopic-images",
+      "challenge_page": "https://icip2022challenge.piclab.ai/dataset/",
+      "licence": "Distributed via IEEE DataPort competition terms; licence not stated as an open SPDX identifier on the landing page. MUST be confirmed on the IEEE DataPort page before redistribution. Academic use permitted for registered participants.",
+      "licence_academic_ok": "conditional",
+      "citation_apa7": "Anantrasirichai, N., Chalidabhongse, T. H., Palasuwan, D., Naruenatthanaset, K., Kobchaisawat, T., Nunthanasup, N., Boonpeng, K., Ma, X., & Achim, A. (2022). ICIP 2022 challenge on parasitic egg detection and classification in microscopic images: Dataset, methods and results. In 2022 IEEE International Conference on Image Processing (ICIP). https://doi.org/10.1109/ICIP46576.2022.9897267",
+      "n_images": 13750,
+      "approx_download_mb": 6000,
+      "native_classes": ["Ascaris lumbricoides", "Capillaria philippinensis", "Enterobius vermicularis", "Fasciolopsis buski", "Hookworm egg", "Hymenolepis diminuta", "Hymenolepis nana", "Opisthorchis viverrini", "Paragonimus spp.", "Taenia spp. egg", "Trichuris trichiura"],
+      "native_task": "faecal-smear egg detection/classification, 11 human intestinal parasite egg types",
+      "sha256": null,
+      "mapping": {
+        "ALL": {"class_id": null, "class_name": null, "confidence": "none", "note": "NO clean mapping to §2. These are HUMAN intestinal parasite eggs. 'Hookworm egg' is a loose morphological analogue of strongyle-type eggs (Haemonchus, class 6) but is NOT H. contortus. Usable ONLY as a faecal-egg-morphology pre-training / domain-adaptation proxy for the faecal-float specimen type (classes 5, 6); never as ground-truth labels for Eimeria or Haemonchus."}
+      },
+      "grouping_metadata": "Group by native egg-class folder; no patient metadata.",
+      "role": "optional faecal-egg-morphology pretraining proxy only",
+      "primary_for_classes": []
+    }
+  ],
+  "taxonomy_coverage": {
+    "0_uninfected": {"public_data": true, "sources": ["nih_malaria_cell", "mendeley_parasite_species", "tryp_thick_smear", "bbbc041_pvivax"], "status": "well covered"},
+    "1_trypanosoma_spp": {"public_data": "proxy_only", "sources": ["tryp_thick_smear", "mendeley_parasite_species"], "status": "real images exist but domain-shifted (thick/mouse, or non-cattle); supplement with Cherehani"},
+    "2_theileria_parva": {"public_data": false, "sources": [], "status": "GAP — Cherehani proprietary slides only; declared limitation"},
+    "3_babesia_spp": {"public_data": "proxy_only", "sources": ["mendeley_parasite_species"], "status": "single proxy source (1,173 imgs, species/host unspecified); supplement with Cherehani"},
+    "4_anaplasma_spp": {"public_data": false, "sources": [], "status": "GAP — Cherehani proprietary slides only; declared limitation"},
+    "5_eimeria_spp": {"public_data": false, "sources": [], "proxy": "chula_parasite_egg_11 (faecal-egg morphology only)", "status": "GAP for labels — Cherehani slides only; Chula usable for faecal-float domain pretraining"},
+    "6_haemonchus_contortus": {"public_data": false, "sources": [], "proxy": "chula_parasite_egg_11 (hookworm-egg morphological analogue only)", "status": "GAP for labels — Cherehani slides only"},
+    "7_plasmodium_falciparum": {"public_data": true, "sources": ["nih_malaria_cell", "bbbc041_pvivax", "mendeley_parasite_species"], "status": "well covered (pre-training proxy class)"}
+  }
+}

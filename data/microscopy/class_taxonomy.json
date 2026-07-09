@@ -1,0 +1,78 @@
+{
+  "spec_reference": "PROJECT_SPEC.md §2 (Microscopy pathogen taxonomy, T1)",
+  "note": "Class IDs are STABLE (0-7) and must never be renumbered. plasmodium_falciparum (7) is a transfer-learning pre-training proxy ONLY and is excluded from the veterinary evaluation test set.",
+  "classes": [
+    {
+      "id": 0,
+      "class": "uninfected",
+      "specimen": "blood smear",
+      "host": "any",
+      "disease": null,
+      "is_pretraining_proxy": false,
+      "notes": "Negative control. Populated from uninfected cells in the NIH Malaria dataset, RBC crops in the Mendeley parasite dataset, and negative frames in the Tryp dataset."
+    },
+    {
+      "id": 1,
+      "class": "trypanosoma_spp",
+      "specimen": "blood smear",
+      "host": "cattle, dog",
+      "disease": "Trypanosomiasis (Nagana)",
+      "is_pretraining_proxy": false,
+      "notes": "Partial public coverage via Tryp (T. brucei brucei, unstained THICK smear, mouse model) and Mendeley (Trypanosome, Giemsa 1000x). Both are domain-shifted from field Giemsa-stained cattle THIN smears; treat as weakly-labelled proxy, not target-domain."
+    },
+    {
+      "id": 2,
+      "class": "theileria_parva",
+      "specimen": "blood/lymph smear",
+      "host": "cattle",
+      "disease": "East Coast Fever",
+      "is_pretraining_proxy": false,
+      "notes": "NO public dataset located. Depends entirely on Cherehani Labs proprietary slides. Declared dissertation data-availability limitation (proposal §3.5)."
+    },
+    {
+      "id": 3,
+      "class": "babesia_spp",
+      "specimen": "blood smear",
+      "host": "cattle, dog",
+      "disease": "Babesiosis",
+      "is_pretraining_proxy": false,
+      "notes": "Only public source is Mendeley 38jtn4nzs6 (1,173 Babesia images, 1000x, species not specified). No cattle-specific B. bovis/B. bigemina public set; supplement with Cherehani slides."
+    },
+    {
+      "id": 4,
+      "class": "anaplasma_spp",
+      "specimen": "blood smear",
+      "host": "cattle",
+      "disease": "Anaplasmosis",
+      "is_pretraining_proxy": false,
+      "notes": "NO public dataset located. Depends entirely on Cherehani Labs proprietary slides. Declared dissertation data-availability limitation (proposal §3.5)."
+    },
+    {
+      "id": 5,
+      "class": "eimeria_spp",
+      "specimen": "faecal float",
+      "host": "cattle, goat, sheep",
+      "disease": "Coccidiosis",
+      "is_pretraining_proxy": false,
+      "notes": "NO downloadable public oocyst dataset located (published studies keep data private). Chula-ParasiteEgg-11 is a faecal-egg-morphology PRE-TRAINING proxy only (human intestinal eggs, no Eimeria class). Target labels depend on Cherehani slides."
+    },
+    {
+      "id": 6,
+      "class": "haemonchus_contortus",
+      "specimen": "faecal float",
+      "host": "goat, sheep",
+      "disease": "Haemonchosis",
+      "is_pretraining_proxy": false,
+      "notes": "NO public dataset located (OvaCyte/ParasightTM are commercial). Chula hookworm-egg images are only a loose morphological analogue of strongyle-type eggs, NOT H. contortus. Target labels depend on Cherehani slides."
+    },
+    {
+      "id": 7,
+      "class": "plasmodium_falciparum",
+      "specimen": "blood smear",
+      "host": "human (proxy)",
+      "disease": "Malaria",
+      "is_pretraining_proxy": true,
+      "notes": "TRANSFER-LEARNING PROXY ONLY (proposal §1.5, §3.2 Phase 1). Well covered by NIH Malaria Cell Images (P. falciparum thin smear) and BBBC041 (P. vivax). Excluded from the veterinary evaluation test set per §2."
+    }
+  ]
+}
