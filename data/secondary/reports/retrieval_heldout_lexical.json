@@ -1,0 +1,347 @@
+{
+  "items": 10,
+  "k": 5,
+  "recall_at_k": 1.0,
+  "mrr": 1.0,
+  "details": [
+    {
+      "item_id": "HRET-001",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-anap-003"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-anap-003",
+        "vet-kb-anap-005",
+        "vet-kb-anap-001",
+        "vet-kb-anap-002",
+        "vet-kb-anap-004"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-002",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-babc-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-babc-004",
+        "vet-kb-babc-002",
+        "vet-kb-babc-001",
+        "vet-kb-babc-005",
+        "vet-kb-babc-003"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-003",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-lsd-003"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-lsd-003",
+        "vet-kb-lsd-004",
+        "vet-kb-lsd-001",
+        "vet-kb-lsd-002",
+        "vet-kb-lsd-005"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-004",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-ccpp-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-ccpp-004",
+        "vet-kb-ccpp-001",
+        "vet-kb-ccpp-003",
+        "vet-kb-ccpp-002"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-005",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-cocc-002"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-cocc-002",
+        "vet-kb-cocc-001",
+        "vet-kb-cocc-004",
+        "vet-kb-cocc-003"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-006",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-haem-002"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-haem-002",
+        "vet-kb-haem-001",
+        "vet-kb-haem-004",
+        "vet-kb-haem-003"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-007",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-cbab-003"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-cbab-003",
+        "vet-kb-cbab-001",
+        "vet-kb-cbab-002"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-008",
+      "section": "prevention",
+      "relevant_doc_ids": [
+        "vet-kb-ehrl-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-ehrl-004"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-009",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-cpv-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-cpv-004",
+        "vet-kb-cpv-001",
+        "vet-kb-cpv-002",
+        "vet-kb-cpv-003"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "HRET-010",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-furd-003"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-furd-003",
+        "vet-kb-furd-001",
+        "vet-kb-furd-004",
+        "vet-kb-furd-002"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    }
+  ],
+  "status": "PASS",
+  "retriever": "SQLite FTS5 Porter BM25 (title weight 2; body weight 1)",
+  "index_documents": 71,
+  "development_groups_excluded": [
+    "kb-source-ecf",
+    "kb-source-mastitis",
+    "kb-source-ppr",
+    "kb-source-tryp"
+  ],
+  "heldout_groups": [
+    "kb-source-anap",
+    "kb-source-babc",
+    "kb-source-cbab",
+    "kb-source-ccpp",
+    "kb-source-cocc",
+    "kb-source-cpv",
+    "kb-source-ehrl",
+    "kb-source-furd",
+    "kb-source-haem",
+    "kb-source-lsd"
+  ],
+  "heldout_reference_source_pages": 9,
+  "exploratory_without_disease_filter": {
+    "items": 10,
+    "k": 5,
+    "recall_at_k": 1.0,
+    "mrr": 1.0,
+    "details": [
+      {
+        "item_id": "HRET-001",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-anap-003"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-anap-003",
+          "vet-kb-anap-005",
+          "vet-kb-babc-003",
+          "vet-kb-tryp-006",
+          "vet-kb-anap-001"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-002",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-babc-004"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-babc-004",
+          "vet-kb-babc-002",
+          "vet-kb-babc-001",
+          "vet-kb-babc-005",
+          "vet-kb-lsd-004"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-003",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-lsd-003"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-lsd-003",
+          "vet-kb-lsd-004",
+          "vet-kb-lsd-001",
+          "vet-kb-lsd-002",
+          "vet-kb-lsd-005"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-004",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-ccpp-004"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-ccpp-004",
+          "vet-kb-ccpp-001",
+          "vet-kb-ppr-005",
+          "vet-kb-ccpp-003",
+          "vet-kb-haem-004"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-005",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-cocc-002"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-cocc-002",
+          "vet-kb-cocc-001",
+          "vet-kb-cocc-004",
+          "vet-kb-cocc-003",
+          "vet-kb-ppr-002"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-006",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-haem-002"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-haem-002",
+          "vet-kb-haem-001",
+          "vet-kb-haem-004",
+          "vet-kb-haem-003",
+          "vet-kb-ppr-006"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-007",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-cbab-003"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-cbab-003",
+          "vet-kb-cbab-001",
+          "vet-kb-ehrl-004",
+          "vet-kb-cbab-002",
+          "vet-kb-ehrl-001"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-008",
+        "section": "prevention",
+        "relevant_doc_ids": [
+          "vet-kb-ehrl-004"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-ehrl-004",
+          "vet-kb-cpv-004",
+          "vet-kb-tryp-005"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-009",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-cpv-004"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-cpv-004",
+          "vet-kb-cpv-001",
+          "vet-kb-cpv-002",
+          "vet-kb-cpv-003",
+          "vet-kb-ehrl-004"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      {
+        "item_id": "HRET-010",
+        "section": null,
+        "relevant_doc_ids": [
+          "vet-kb-furd-003"
+        ],
+        "returned_doc_ids": [
+          "vet-kb-furd-003",
+          "vet-kb-furd-001",
+          "vet-kb-furd-004",
+          "vet-kb-furd-002",
+          "vet-kb-hmpl-001"
+        ],
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0
+      }
+    ],
+    "status": "PASS"
+  },
+  "limitations": "Ten disease groups span nine unique source pages (canine and bovine babesiosis share a source); in-corpus source-derived relevance, no independent clinical judgements; scores are not Chroma scores."
+}

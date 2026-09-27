@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <style>
+    .title { font: 700 25px Arial, sans-serif; fill: #17365d; }
+    .label { font: 700 18px Arial, sans-serif; fill: #17365d; }
+    .value { font: 700 26px Arial, sans-serif; fill: #17365d; }
+    .small { font: 15px Arial, sans-serif; fill: #263238; }
+    .tiny { font: 13px Arial, sans-serif; fill: #455a64; }
+    .source { fill: #e7f1fa; stroke: #2f5597; stroke-width: 2; }
+    .train { fill: #d9ead3; stroke: #548235; stroke-width: 2; }
+    .val { fill: #fff2cc; stroke: #bf9000; stroke-width: 2; }
+    .test { fill: #f4cccc; stroke: #a61c00; stroke-width: 2; }
+    .arrow { stroke: #365f91; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#365f91"/></marker></defs>
+  <text x="600" y="40" text-anchor="middle" class="title">Public Tryp image flow and grouped split</text>
+  <rect x="75" y="100" width="280" height="145" rx="12" class="source"/>
+  <text x="215" y="140" text-anchor="middle" class="label">Supplied archive</text>
+  <text x="215" y="181" text-anchor="middle" class="value">3,208</text>
+  <text x="215" y="214" text-anchor="middle" class="small">image files</text>
+  <rect x="460" y="100" width="280" height="145" rx="12" class="source"/>
+  <text x="600" y="140" text-anchor="middle" class="label">Eligibility processing</text>
+  <text x="600" y="177" text-anchor="middle" class="small">8 duplicate bytes</text>
+  <text x="600" y="202" text-anchor="middle" class="small">4 positive images without boxes</text>
+  <text x="600" y="229" text-anchor="middle" class="small">excluded before splitting</text>
+  <path d="M355 172 H460" class="arrow"/>
+  <rect x="845" y="100" width="280" height="145" rx="12" class="source"/>
+  <text x="985" y="140" text-anchor="middle" class="label">Eligible benchmark</text>
+  <text x="985" y="181" text-anchor="middle" class="value">3,196</text>
+  <text x="985" y="214" text-anchor="middle" class="small">images / 95 source groups</text>
+  <path d="M740 172 H845" class="arrow"/>
+  <text x="600" y="300" text-anchor="middle" class="label">Deterministic source-video grouped assignment</text>
+  <path d="M985 245 V345" class="arrow"/>
+  <rect x="70" y="375" width="300" height="155" rx="12" class="train"/>
+  <text x="220" y="416" text-anchor="middle" class="label">Train</text>
+  <text x="220" y="461" text-anchor="middle" class="value">2,231</text>
+  <text x="220" y="489" text-anchor="middle" class="small">67 groups; 65 negative</text>
+  <text x="220" y="514" text-anchor="middle" class="tiny">70% target</text>
+  <rect x="450" y="375" width="300" height="155" rx="12" class="val"/>
+  <text x="600" y="416" text-anchor="middle" class="label">Validation</text>
+  <text x="600" y="461" text-anchor="middle" class="value">488</text>
+  <text x="600" y="489" text-anchor="middle" class="small">7 groups; 16 negative</text>
+  <text x="600" y="514" text-anchor="middle" class="tiny">15% target</text>
+  <rect x="830" y="375" width="300" height="155" rx="12" class="test"/>
+  <text x="980" y="416" text-anchor="middle" class="label">Held-out test</text>
+  <text x="980" y="461" text-anchor="middle" class="value">477</text>
+  <text x="980" y="489" text-anchor="middle" class="small">21 groups; 12 negative</text>
+  <text x="980" y="514" text-anchor="middle" class="tiny">15% target; never trained</text>
+  <path d="M985 345 L220 375 M985 345 L600 375 M985 345 L980 375" class="arrow"/>
+  <text x="600" y="595" text-anchor="middle" class="tiny">No source-video group crosses a split; frames are records, not independent animals.</text>
+</svg>

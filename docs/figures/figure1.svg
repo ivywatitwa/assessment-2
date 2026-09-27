@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690">
+  <rect width="1200" height="690" fill="#ffffff"/>
+  <style>
+    .title { font: 700 25px Arial, sans-serif; fill: #17365d; }
+    .section { font: 700 19px Arial, sans-serif; fill: #17365d; }
+    .label { font: 600 17px Arial, sans-serif; fill: #17365d; }
+    .small { font: 15px Arial, sans-serif; fill: #263238; }
+    .tiny { font: 13px Arial, sans-serif; fill: #455a64; }
+    .done { fill: #e7f1fa; stroke: #2f5597; stroke-width: 2; }
+    .planned { fill: #fff8e6; stroke: #b57f00; stroke-width: 2; stroke-dasharray: 8 6; }
+    .boundary { fill: none; stroke: #90a4ae; stroke-width: 2; stroke-dasharray: 7 6; }
+    .arrow { stroke: #365f91; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .planned-arrow { stroke: #b57f00; stroke-width: 3; fill: none; stroke-dasharray: 8 6; marker-end: url(#arrowGold); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#365f91"/></marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#b57f00"/></marker>
+  </defs>
+  <text x="600" y="40" text-anchor="middle" class="title">Implemented pipeline and evidence boundaries</text>
+  <rect x="35" y="70" width="1130" height="550" rx="14" class="boundary"/>
+  <text x="60" y="102" class="section">Secondary-data preparation</text>
+  <rect x="60" y="125" width="215" height="90" rx="10" class="done"/>
+  <text x="167" y="158" text-anchor="middle" class="label">Public Tryp images</text>
+  <text x="167" y="185" text-anchor="middle" class="small">3,208 archive files</text>
+  <rect x="315" y="125" width="215" height="90" rx="10" class="done"/>
+  <text x="422" y="158" text-anchor="middle" class="label">Source and group checks</text>
+  <text x="422" y="185" text-anchor="middle" class="small">hashes, labels, boxes</text>
+  <rect x="570" y="125" width="215" height="90" rx="10" class="done"/>
+  <text x="677" y="158" text-anchor="middle" class="label">Grouped T1 splits</text>
+  <text x="677" y="185" text-anchor="middle" class="small">95 source-video groups</text>
+  <rect x="825" y="125" width="290" height="90" rx="10" class="done"/>
+  <text x="970" y="158" text-anchor="middle" class="label">Public evaluation records</text>
+  <text x="970" y="185" text-anchor="middle" class="small">2,231 train; 488 val; 477 test</text>
+  <path d="M275 170 H315 M530 170 H570 M785 170 H825" class="arrow"/>
+
+  <text x="60" y="270" class="section">Image and text branches</text>
+  <rect x="60" y="295" width="325" height="110" rx="10" class="done"/>
+  <text x="222" y="328" text-anchor="middle" class="label">MedGemma 4B + QLoRA</text>
+  <text x="222" y="356" text-anchor="middle" class="small">one archived T1 adapter run</text>
+  <text x="222" y="382" text-anchor="middle" class="small">class-sensitive evaluation</text>
+  <rect x="435" y="295" width="325" height="110" rx="10" class="done"/>
+  <text x="597" y="328" text-anchor="middle" class="label">Veterinary knowledge base</text>
+  <text x="597" y="356" text-anchor="middle" class="small">71 source-labelled chunks</text>
+  <text x="597" y="382" text-anchor="middle" class="small">ChromaDB retrieval</text>
+  <rect x="810" y="295" width="305" height="110" rx="10" class="done"/>
+  <text x="962" y="328" text-anchor="middle" class="label">Four development queries</text>
+  <text x="962" y="356" text-anchor="middle" class="small">Recall@5 and MRR</text>
+  <text x="962" y="382" text-anchor="middle" class="small">saved ranked source IDs</text>
+  <path d="M167 215 V255 H222 V295" class="arrow"/>
+  <path d="M597 405 V455" class="arrow"/>
+  <path d="M962 405 V455" class="arrow"/>
+  <rect x="60" y="455" width="325" height="90" rx="10" class="done"/>
+  <text x="222" y="489" text-anchor="middle" class="label">Archived T1 outputs</text>
+  <text x="222" y="517" text-anchor="middle" class="small">validation and held-out test</text>
+  <rect x="435" y="455" width="680" height="90" rx="10" class="planned"/>
+  <text x="775" y="489" text-anchor="middle" class="label">Unexecuted comparative questions</text>
+  <text x="775" y="517" text-anchor="middle" class="small">base versus adapted; RAG answer quality; faithfulness and stability</text>
+  <path d="M385 500 H435" class="planned-arrow"/>
+  <text x="600" y="590" text-anchor="middle" class="tiny">Solid blue: executed evidence. Dashed gold: specified but not measured.</text>
+</svg>

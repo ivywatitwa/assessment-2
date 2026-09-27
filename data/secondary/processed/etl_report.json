@@ -1,0 +1,11 @@
+{
+  "study_policy": "secondary_data_only",
+  "image_input": "/Users/ivywatitwa/medgemma-vet-diagnostics/data/secondary/manifests/images_raw.jsonl",
+  "text_input": "/Users/ivywatitwa/medgemma-vet-diagnostics/data/secondary/text/items.jsonl",
+  "records_input": 4,
+  "records_clean": 4,
+  "rejected": {},
+  "metadata_only": true,
+  "spark_count": null,
+  "status": "PASS"
+}

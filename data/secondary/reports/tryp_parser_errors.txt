@@ -1,0 +1,12 @@
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_087_00000214.jpg: positive-partition image has no parasite boxes; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_012_00000109.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_012_00000109.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_012_00000169.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_012_00000169.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_017_00000058.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_017_00000058.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_017_00000070.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_017_00000070.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_085_00000620.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_085_00000620.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_086_00000043.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/test/images/positive_video_086_00000043.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_087_00000198.jpg: positive-partition image has no parasite boxes; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_087_00000207.jpg: positive-partition image has no parasite boxes; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_087_00000285.jpg: positive-partition image has no parasite boxes; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/validation/images/positive_video_058_00000621.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_058_00000621.jpg; excluded
+EXCLUDED: data/secondary/raw/microscopy/Tryp/positive_images/validation/images/positive_video_082_00000174.jpg: duplicate bytes of data/secondary/raw/microscopy/Tryp/positive_images/train/images/positive_video_082_00000174.jpg; excluded

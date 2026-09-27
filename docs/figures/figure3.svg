@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650">
+  <rect width="1000" height="650" fill="#ffffff"/>
+  <style>
+    .title { font: 700 25px Arial, sans-serif; fill: #17365d; }
+    .axis { font: 700 18px Arial, sans-serif; fill: #17365d; }
+    .label { font: 16px Arial, sans-serif; fill: #263238; }
+    .count { font: 700 28px Arial, sans-serif; fill: #ffffff; }
+    .note { font: 15px Arial, sans-serif; fill: #455a64; }
+    .zero { fill: #d9eaf7; stroke: #ffffff; stroke-width: 4; }
+    .miss { fill: #c0504d; stroke: #ffffff; stroke-width: 4; }
+    .hit { fill: #548235; stroke: #ffffff; stroke-width: 4; }
+  </style>
+  <text x="500" y="42" text-anchor="middle" class="title">MedGemma test confusion matrix</text>
+  <text x="615" y="90" text-anchor="middle" class="axis">Predicted class</text>
+  <text x="310" y="140" text-anchor="middle" class="label">Negative control</text>
+  <text x="615" y="140" text-anchor="middle" class="label">Trypanosome present</text>
+  <text x="95" y="300" text-anchor="middle" class="axis" transform="rotate(-90 95 300)">True class</text>
+  <text x="205" y="225" text-anchor="middle" class="label">Negative control</text>
+  <text x="205" y="390" text-anchor="middle" class="label">Trypanosome present</text>
+  <rect x="250" y="165" width="300" height="150" rx="4" class="zero"/>
+  <rect x="550" y="165" width="300" height="150" rx="4" class="miss"/>
+  <rect x="250" y="315" width="300" height="150" rx="4" class="zero"/>
+  <rect x="550" y="315" width="300" height="150" rx="4" class="hit"/>
+  <text x="400" y="255" text-anchor="middle" class="count" fill="#17365d">0</text>
+  <text x="700" y="255" text-anchor="middle" class="count">12</text>
+  <text x="400" y="405" text-anchor="middle" class="count" fill="#17365d">0</text>
+  <text x="700" y="405" text-anchor="middle" class="count">465</text>
+  <text x="700" y="520" text-anchor="middle" class="note">All 12 negative controls were false positives.</text>
+  <text x="700" y="548" text-anchor="middle" class="note">Negative recall = 0.00; positive recall = 1.00.</text>
+  <text x="500" y="610" text-anchor="middle" class="note">MedGemma accuracy 0.9748 equals the always-positive baseline.</text>
+</svg>

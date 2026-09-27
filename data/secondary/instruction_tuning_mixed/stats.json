@@ -1,0 +1,33 @@
+{
+  "splits": {
+    "train": {
+      "total": 2931,
+      "public": 2231,
+      "synthetic_auxiliary": 700,
+      "tasks": {
+        "T1_microscopy": 2231,
+        "T2_treatment": 700
+      }
+    },
+    "val": {
+      "total": 639,
+      "public": 488,
+      "synthetic_auxiliary": 151,
+      "tasks": {
+        "T1_microscopy": 488,
+        "T2_treatment": 151
+      }
+    },
+    "test": {
+      "total": 626,
+      "public": 477,
+      "synthetic_auxiliary": 149,
+      "tasks": {
+        "T1_microscopy": 477,
+        "T2_treatment": 149
+      }
+    }
+  },
+  "status": "PASS",
+  "synthetic_is_secondary_evidence": false
+}

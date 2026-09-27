@@ -3,12 +3,36 @@
 .env.*
 *.key
 kaggle.json
+.DS_Store
+
+# University documents and local dissertation export
+/Assessment 2 - UEL-CN-7000.pdf
+/Thesis Proposal - IVY WATITWA.pdf
+/IVY WATITWA - R2504D19582395 - THESIS.pdf
+
+# Local agent tooling
+/.agents/
+/skills-lock.json
+
+# Local intake is unverified and excluded from the study
+/n1.jpg
+/n2.jpeg
+/n3.jpeg
+/t1.jpg
+/t2.jpg
+/t3.jpeg
+/data/microscopy/local_intake_manifest.jsonl
 
 # Raw + prepared image data: large, licence-bound, redownloadable via
 # scripts/download_microscopy.py. The manifests that describe them ARE tracked.
 data/microscopy/raw/
 data/microscopy/images/
 data/microscopy/prepared/*.parquet
+data/secondary/raw/
+data/secondary/processed/microscopy/
+data/rag_knowledge_base/chroma_db/
+tryp.zip
+medgemma-secondary-kaggle.tar
 
 # Model artefacts
 checkpoints/
@@ -16,6 +40,11 @@ adapters/
 *.safetensors
 *.bin
 wandb/
+
+# Generated model/data bundles and archived outputs
+/*.zip
+/*.tar
+/*.tar.gz
 
 # Vector store (rebuildable from kb_chunks.jsonl via build_chroma_index.py)
 data/rag_knowledge_base/chroma/

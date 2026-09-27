@@ -1,0 +1,72 @@
+{
+  "items": 4,
+  "k": 5,
+  "recall_at_k": 1.0,
+  "mrr": 0.8125,
+  "details": [
+    {
+      "item_id": "RET-001",
+      "section": "treatment",
+      "relevant_doc_ids": [
+        "vet-kb-ecf-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-ecf-004"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "RET-002",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-tryp-003",
+        "vet-kb-tryp-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-tryp-002",
+        "vet-kb-tryp-006",
+        "vet-kb-tryp-001",
+        "vet-kb-tryp-003",
+        "vet-kb-tryp-004"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.25
+    },
+    {
+      "item_id": "RET-003",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-ppr-004",
+        "vet-kb-ppr-005"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-ppr-004",
+        "vet-kb-ppr-001",
+        "vet-kb-ppr-006",
+        "vet-kb-ppr-003",
+        "vet-kb-ppr-005"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "item_id": "RET-004",
+      "section": null,
+      "relevant_doc_ids": [
+        "vet-kb-mast-003",
+        "vet-kb-mast-004"
+      ],
+      "returned_doc_ids": [
+        "vet-kb-mast-003",
+        "vet-kb-mast-005",
+        "vet-kb-mast-002",
+        "vet-kb-mast-004",
+        "vet-kb-mast-006"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    }
+  ],
+  "status": "PASS"
+}

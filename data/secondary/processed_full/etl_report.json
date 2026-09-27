@@ -1,0 +1,12 @@
+{
+  "study_policy": "secondary_data_only",
+  "image_input": "data/secondary/manifests/images_raw.jsonl",
+  "text_input": "data/secondary/text/items.jsonl",
+  "records_input": 3200,
+  "records_clean": 3200,
+  "rejected": {},
+  "metadata_only": true,
+  "spark_count": null,
+  "status": "PASS",
+  "elapsed_seconds": 0.063
+}

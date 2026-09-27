@@ -1,0 +1,35 @@
+{
+  "model_id": "openbmb/MiniCPM-V-4.6",
+  "model_revision": "36f34a661a4bd35d0dc2294cb044d2584646c7d3",
+  "training": {
+    "epochs": 1,
+    "training_rows": 4332,
+    "class_counts": {
+      "negative_control": 2166,
+      "trypanosome_present": 2166
+    },
+    "balancing": "Cycle the 65 negative examples from the training split; no new image diversity"
+  },
+  "validation": {
+    "records": 488,
+    "groups": 7,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "confusion_matrix": [[16, 0], [0, 472]],
+    "negative_control_recall": 1.0,
+    "balanced_accuracy": 1.0,
+    "invalid_outputs": 0
+  },
+  "test": {
+    "records": 477,
+    "groups": 21,
+    "accuracy": 0.9769392033542977,
+    "macro_f1": 0.5710782310144691,
+    "confusion_matrix": [[1, 11], [0, 465]],
+    "negative_control_recall": 0.08333333333333333,
+    "balanced_accuracy": 0.5416666666666666,
+    "invalid_outputs": 0
+  },
+  "label_order": ["negative_control", "trypanosome_present"],
+  "evaluation_note": "One saved adapter was evaluated on validation and then test. Test contains 12 negative controls; the result is limited to the public Tryp mouse-model split."
+}

@@ -20,6 +20,30 @@ taxonomy in [`../../docs/PROJECT_SPEC.md`](../../docs/PROJECT_SPEC.md) §2 (stab
 | `raw/<dataset>/` | Downloaded source data (git-ignored). |
 | `images/<split>/<class>/` | Normalised 896×896 PNGs (real runs). |
 | `prepared/` | Split manifest (`split_manifest.jsonl`), `summary.json`, `manifest.parquet`. |
+| `local_intake_manifest.jsonl` | Audit labels for the locally supplied image intake; unverified records are excluded from T1. |
+
+## Local image intake
+
+The files supplied in the repository's former `data/Images/` folder were cleaned into
+`raw/local_intake/` by observable content, not guessed diagnosis:
+
+| Intake group | Count | T1 status |
+|---|---:|---|
+| Blood-smear candidates | 19 | Needs host, specimen, infection status, and expert label |
+| Bacterial microscopy | 7 | Out of the T1 parasite taxonomy |
+| Culture plates | 2 | Out of the T1 image task |
+| Faecal/debris microscopy | 3 | Needs expert confirmation; no Eimeria/Haemonchus egg confirmed |
+| Uncertain microscopy | 2 | Needs specimen identification |
+| Exact duplicates removed | 4 | Recorded in `local_intake_manifest.jsonl` |
+
+No local image is currently assigned to a canonical class (`class_id` is `null`) and none is
+copied into `images/train`, `images/val`, or `images/test`. A blood field is not evidence of
+`uninfected`, and morphology alone does not establish *Theileria*, *Babesia*, *Anaplasma*, or
+*Trypanosoma* species. This prevents unverified local images from becoming false ground truth.
+
+To promote a record into T1, add the host and specimen metadata, the authoritative diagnostic
+label (or verified negative status), a slide/patient group key, and the source/licence record.
+Then place it under the corresponding manifest dataset and run `python scripts/prepare_microscopy.py --local`.
 
 ## Real datasets located (all verified July 2026)
 

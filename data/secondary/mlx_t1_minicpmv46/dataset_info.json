@@ -1,0 +1,9 @@
+{
+  "schema": "mlx-vlm-lora-images-messages-jsonl",
+  "model_id": "openbmb/MiniCPM-V-4.6",
+  "prompt": "Inspect the entire bright-field blood-smear microscopy image for Trypanosoma parasites. Look for an elongated, curved protozoan with an undulating membrane or flagellum among the blood cells; ignore stain artifacts, debris, and filenames. Reply with exactly one label: `trypanosome_present` if at least one Trypanosoma is visible, or `negative_control` if none is visible. Do not add an explanation.",
+  "seed": 42,
+  "train_class_balanced": true,
+  "image_paths": "repository-relative; run MLX jobs with cwd at --root",
+  "source": "data/secondary/instruction_tuning_mixed/{train,val,test}.jsonl"
+}

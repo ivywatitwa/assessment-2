@@ -1,0 +1,16 @@
+{
+  "source": "/Users/ivywatitwa/medgemma-vet-diagnostics/data/clinical_text",
+  "output": "/Users/ivywatitwa/medgemma-vet-diagnostics/data/secondary/instruction_tuning_synthetic",
+  "seed": 42,
+  "main_counts": {
+    "train": 700,
+    "val": 151,
+    "test": 149
+  },
+  "probe_count": 60,
+  "evaluation_role": "synthetic_auxiliary_only",
+  "clinical_use": false,
+  "requires_expert_validation": true,
+  "secondary_evidence": false,
+  "status": "PASS"
+}

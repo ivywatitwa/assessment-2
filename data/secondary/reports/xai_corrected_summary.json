@@ -1,0 +1,19 @@
+{
+  "config": "configs/secondary.json",
+  "image": {
+    "records": 4,
+    "mean_positive_attribution_mass_inside_boxes": null,
+    "pointing_game_accuracy": null,
+    "records_with_boxes": 2,
+    "records_with_defined_box_mass": 0,
+    "records_with_positive_pointing_target": 0,
+    "method": "image_tile_occlusion"
+  },
+  "text": {
+    "records": 4,
+    "mean_max_field_attribution": 6.297071790050421,
+    "method": "field_shap"
+  },
+  "status": "PASS",
+  "warning": "Small-sample attribution diagnostics; undefined image box scores are excluded, and no explanation faithfulness is established."
+}

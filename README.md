@@ -1,101 +1,68 @@
-# MedGemma Veterinary Diagnostics — Data & Pipeline
+# Veterinary microscopy model study
 
-Supporting code and datasets for the MSc Big Data Technologies dissertation:
+This repository contains the code, data records, experiment notes, and dissertation for a secondary-data study of veterinary microscopy classification and literature retrieval. The image task uses the public Tryp mouse-model dataset. It does not evaluate veterinary clinical cases or establish performance on Kenyan cattle.
 
-> **Fine-Tuning MedGemma for Multimodal Explainable Veterinary Diagnostics:
-> Microscopy Image Analysis and Treatment Recommendation via a Big Data Pipeline
-> at Cherehani Labs, Kenya**
-> University of East London / UNICAF — UEL-CN-7000
+## Start here
 
----
+For a quick review, use this order:
 
-## ⚠️ Read before using any data here
+1. [Study scope and results](docs/REVIEW_GUIDE.md)
+2. [Dissertation draft](docs/THESIS_DRAFT.md)
+3. [Formatted dissertation](Thesis.docx)
+4. [MedGemma results](docs/T1_VALIDATION_RESULTS.md)
+5. [MiniCPM-V results](docs/T1_MINICPM_RESULTS.md)
+6. [Implementation and evidence map](docs/IMPLEMENTATION_GUIDE.md)
 
-**The clinical text records in `data/clinical_text/` are SYNTHETIC.** They were
-generated programmatically for model training and evaluation. They are:
-
-- **not real patient records**
-- **not veterinary advice**
-- **not validated** — every record carries `requires_expert_validation: true`
-
-They must be reviewed and signed off by Cherehani Labs clinical staff before use
-in any experiment whose results are reported. Do not use any treatment protocol
-in this repository to treat an animal.
-
-The RAG knowledge base in `data/rag_knowledge_base/` is the opposite: it is
-**curated from real, verified literature**. Every chunk carries a real citation
-and a URL that was actually fetched. Nothing in it is generated. That is
-deliberate — it is the grounding corpus whose entire purpose is to reduce
-hallucination, and the dissertation's hallucination-rate metric depends on it
-being real.
-
----
-
-## Layout
-
-```
-data/
-  clinical_text/         synthetic clinical cases (JSONL) — 1,060 records
-  rag_knowledge_base/    71 chunks from 20 verified sources, for ChromaDB
-  microscopy/            taxonomy, dataset manifest, ETL outputs
-  instruction_tuning/    merged T1+T2 instruction set (built by scripts/)
-scripts/                 generators, validators, Spark ETL, RAG index/query
-docs/
-  PROJECT_SPEC.md        canonical schemas + taxonomy (the contract)
-  IMPLEMENTATION_GUIDE.md  step-by-step runbook for all 5 phases
-  METHODOLOGICAL_RISKS.md  candid risks — seeds the Limitations chapter
-```
-
-## Quick start
+The thesis source is `docs/THESIS_DRAFT.md`. Regenerate the formatted document with:
 
 ```bash
-# 1. Regenerate the synthetic clinical cases (deterministic, seeded)
-python3 scripts/generate_clinical_cases.py --n 1000 --seed 42
-python3 scripts/validate_clinical_cases.py        # 16 checks, must exit 0
-
-# 2. Inspect the microscopy plan without downloading anything
-python3 scripts/prepare_microscopy.py --dry-run
-
-# 3. Build the RAG index (needs: pip install chromadb sentence-transformers)
-python3 scripts/build_chroma_index.py --dry-run   # validates chunks, no deps
-python3 scripts/build_chroma_index.py
-
-# 4. Merge both tasks into the single instruction-tuning set
-python3 scripts/build_instruction_set.py --exclude-proxy
+python scripts/build_thesis_docx.py --input docs/THESIS_DRAFT.md --output Thesis.docx
 ```
 
-For the current repository state, use `--t2-only` because no microscopy image files are
-present yet. The complete, honest runbook is in [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md).
+## Main findings
 
-For the revised dissertation that prohibits first-hand data collection, use the
-[secondary-data implementation plan](docs/SECONDARY_DATA_IMPLEMENTATION_PLAN.md), the
-[step-by-step guide](docs/SECONDARY_DATA_STEP_BY_STEP_GUIDE.md), and the generated
-[thesis draft](thesis.docx).
+The 3,196 eligible Tryp images were split by source video into 2,231 training, 488 validation, and 477 test records. The original MedGemma adapter predicted every image as positive. A separately trained, class-balanced MiniCPM-V 4.6 adapter scored perfectly on validation, but its test result was much weaker:
 
-## Known hard constraints
+| Model and split | Records | Accuracy | Macro-F1 | Negative-control recall | Balanced accuracy |
+|---|---:|---:|---:|---:|---:|
+| MedGemma, validation | 488 | 0.9672 | 0.4917 | 0.0000 | 0.5000 |
+| MedGemma, test | 477 | 0.9748 | 0.4936 | 0.0000 | 0.5000 |
+| MiniCPM-V 4.6, validation | 488 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| MiniCPM-V 4.6, test | 477 | 0.9769 | 0.5711 | 0.0833 | 0.5417 |
 
-These are documented at length in `docs/METHODOLOGICAL_RISKS.md`. The three that
-change what is possible:
+The MiniCPM test split contained only 12 negative controls. It correctly classified one and missed 11. These small, source-grouped results do not establish clinical usefulness or generalisation beyond the public mouse-model dataset. The repository also contains development-scale retrieval checks, synthetic auxiliary records, and diagnostic attribution runs. They are not clinical evidence.
 
-1. **East Coast Fever has zero public microscopy data.** So do *Anaplasma*,
-   *Eimeria* and *Haemonchus*. Four of the seven veterinary target classes depend
-   entirely on Cherehani Labs supplying labelled slides. Augmentation cannot
-   manufacture a class with no examples. Confirm slide access before Phase 1.
+## Repository map
 
-2. **The model must be `google/medgemma-4b-it`.** The 27B variant is text-only
-   and cannot ingest an image, so it cannot perform Task 1. The 4B weights are
-   licence-gated behind Health AI Developer Foundations terms — accept them on
-   Hugging Face before you need them.
+| Path | Contents |
+|---|---|
+| `scripts/` | Data validation, preprocessing, training, evaluation, and document-generation programs |
+| `data/secondary/` | Source register, public-data manifests and splits, derived records, and machine-readable reports |
+| `data/clinical_text/` | Synthetic auxiliary T2 records, clearly marked as synthetic and not clinical data |
+| `data/rag_knowledge_base/` | Cited veterinary knowledge-base source material; see its README and source register for provenance |
+| `docs/` | Dissertation source, review guide, methods, experiment notes, and figures |
+| `configs/` | Study configuration |
+| `colab_*.ipynb` | Cloud training and evaluation workflows |
+| `mlx_*.ipynb` | Apple Silicon MLX training and evaluation workflow |
+| `Thesis.docx` | Formatted dissertation generated from the Markdown source |
 
-3. **Grad-CAM does not apply cleanly.** MedGemma's vision tower is a SigLIP ViT,
-   not a CNN, and the model is generative, so there is no softmax class score to
-   differentiate. See `docs/IMPLEMENTATION_GUIDE.md` §5 for the three ranked
-   workarounds and disclose which you used.
+Raw microscope images, model checkpoints, adapters, local vector indexes, credentials, and result bundles are kept outside version control. Download source datasets from their publishers and check the source register and each dataset's licence before use or redistribution.
 
-## Licence / provenance
+## Reproduce basic checks
 
-Third-party dataset licences are recorded per-dataset in
-`data/microscopy/dataset_manifest.json` (they differ — BBBC041 is CC BY-NC-SA,
-Chula-ParasiteEgg is gated). Source citations for the RAG corpus are in
-`data/rag_knowledge_base/sources.json`, which doubles as the dissertation's
-data-provenance appendix.
+Use Python 3.12 or later. The project environment is defined in `pyproject.toml` and `uv.lock`. Run the provenance validator from the repository root:
+
+```bash
+python scripts/validate_secondary_sources.py
+```
+
+The MLX training notebook requires Apple Silicon, MLX-VLM, the converted base model, the prepared image files, and access to the model revision listed in the notebook. The Colab notebooks require their documented GPU runtime and source data. Training is not required to review the saved dissertation and result summaries.
+
+## Data and use limits
+
+- `data/clinical_text/` and `data/secondary/instruction_tuning_synthetic/` contain generated examples. They are auxiliary development/training material, not patient records or secondary clinical evidence.
+- The saved source audit reports 37 unverified local-intake records and zero records included in T1. Their raw manifest and images are kept locally and are not part of this repository.
+- Tryp contains microscopy images from a mouse model. Its labels do not establish a diagnosis in livestock or companion animals.
+- Retrieval scores are small development or passage-identification checks. They do not measure treatment-answer factuality or clinical safety.
+- The models and example outputs are for research review. They are not veterinary advice or a deployed diagnostic tool.
+- Consult the source register and applicable publisher terms before redistributing third-party material.

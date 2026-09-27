@@ -1,0 +1,25 @@
+{
+  "study_policy": "secondary_data_only_with_synthetic_auxiliary",
+  "register": "data/secondary/sources/source_register.json",
+  "source_count": 7,
+  "source_type_counts": {
+    "public_dataset": 4,
+    "curated_literature_corpus": 1,
+    "local_unverified": 1,
+    "synthetic_generated": 1
+  },
+  "local_intake": {
+    "manifest_exists": true,
+    "records": 37,
+    "included_in_t1_records": 0,
+    "label_status_counts": {
+      "duplicate_removed": 4,
+      "needs_expert_validation": 24,
+      "out_of_scope_pending_provenance": 9
+    },
+    "policy_result": "PASS"
+  },
+  "optional_manifests": [],
+  "errors": [],
+  "status": "PASS"
+}

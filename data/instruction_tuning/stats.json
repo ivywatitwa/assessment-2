@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "splits": {
+    "train": {
+      "total": 700,
+      "T1_microscopy": 0,
+      "T2_treatment": 700
+    },
+    "val": {
+      "total": 151,
+      "T1_microscopy": 0,
+      "T2_treatment": 151
+    },
+    "test": {
+      "total": 149,
+      "T1_microscopy": 0,
+      "T2_treatment": 149
+    }
+  },
+  "missing_sources": [],
+  "hallucination_probe": 60
+}

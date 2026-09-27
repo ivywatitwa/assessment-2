@@ -10,7 +10,8 @@ instruction-tuning set, per the research proposal, Phase 3:
 Reads:
     data/clinical_text/cases_{train,val,test}.jsonl        (T2 source)
     data/clinical_text/hallucination_probe.jsonl           (T2 probe, eval only)
-    data/microscopy/splits/{train,val,test}.jsonl          (T1 source, from Spark ETL)
+    data/microscopy/splits/{train,val,test}.jsonl          (T1 source, if supplied)
+    data/microscopy/prepared/split_manifest.jsonl          (T1 fallback, from Spark ETL)
 
 Writes:
     data/instruction_tuning/{train,val,test}.jsonl
@@ -89,6 +90,18 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     with path.open("w") as fh:
         for row in rows:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def load_microscopy_split(split: str) -> tuple[list[dict[str, Any]], Path | None]:
+    """Load a per-split file, or filter the prepared ETL manifest."""
+    direct = REPO / "data" / "microscopy" / "splits" / f"{split}.jsonl"
+    if direct.exists():
+        return read_jsonl(direct), direct
+
+    prepared = REPO / "data" / "microscopy" / "prepared" / "split_manifest.jsonl"
+    if not prepared.exists():
+        return [], None
+    return [r for r in read_jsonl(prepared) if r.get("split") == split], prepared
 
 
 # --------------------------------------------------------------------------
@@ -220,9 +233,15 @@ def build_t1(img: dict[str, Any], rng: random.Random, taxonomy: dict[int, dict])
         if disease and disease != "—":
             answer += f" This organism is the causative agent of {disease}."
 
+    image_path = Path(img["image_path"])
+    try:
+        image_value = str(image_path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        image_value = img["image_path"]
+
     return {
         "task": "T1_microscopy",
-        "image": img["image_path"],
+        "image": image_value,
         "messages": [
             {"role": "user", "content": instr},
             {"role": "assistant", "content": answer},
@@ -256,6 +275,8 @@ def main() -> int:
     ap.add_argument("--exclude-proxy", action="store_true",
                     help="Drop the Plasmodium pre-training proxy class from val/test "
                          "(spec §2: it is excluded from the veterinary evaluation set).")
+    ap.add_argument("--t2-only", action="store_true",
+                    help="Build the treatment set without microscopy sources while T1 images are unavailable.")
     ap.add_argument("--out", type=Path, default=REPO / "data" / "instruction_tuning")
     args = ap.parse_args()
 
@@ -266,19 +287,21 @@ def main() -> int:
 
     for split in SPLITS:
         t2_src = REPO / "data" / "clinical_text" / f"cases_{split}.jsonl"
-        t1_src = REPO / "data" / "microscopy" / "splits" / f"{split}.jsonl"
-
         cases = read_jsonl(t2_src)
-        images = read_jsonl(t1_src)
+        images, t1_src = load_microscopy_split(split)
 
         if not cases:
             stats["missing_sources"].append(str(t2_src.relative_to(REPO)))
-        if not images:
-            stats["missing_sources"].append(str(t1_src.relative_to(REPO)))
+        if not images and not args.t2_only:
+            expected = t1_src or (REPO / "data" / "microscopy" / "splits" / f"{split}.jsonl")
+            stats["missing_sources"].append(str(expected.relative_to(REPO)))
 
         rows = [build_t2(c, rng) for c in cases]
 
         for img in images:
+            # Dry-run manifests contain PLAN-ONLY paths, not image content.
+            if not Path(img["image_path"]).exists():
+                continue
             cls = taxonomy.get(img["class_id"], {})
             if args.exclude_proxy and split in ("val", "test") and cls.get("is_pretraining_proxy"):
                 continue

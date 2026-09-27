@@ -1,0 +1,16 @@
+{
+  "images_input": 3196,
+  "text_input": 0,
+  "records_output": 3196,
+  "task_counts": {
+    "T1_microscopy": 3196
+  },
+  "excluded": {},
+  "dry_run": false,
+  "status": "PASS",
+  "written_splits": {
+    "train": 2231,
+    "val": 488,
+    "test": 477
+  }
+}
