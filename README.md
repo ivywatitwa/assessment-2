@@ -64,6 +64,14 @@ python3 scripts/build_chroma_index.py
 python3 scripts/build_instruction_set.py --exclude-proxy
 ```
 
+For the current repository state, use `--t2-only` because no microscopy image files are
+present yet. The complete, honest runbook is in [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md).
+
+For the revised dissertation that prohibits first-hand data collection, use the
+[secondary-data implementation plan](docs/SECONDARY_DATA_IMPLEMENTATION_PLAN.md), the
+[step-by-step guide](docs/SECONDARY_DATA_STEP_BY_STEP_GUIDE.md), and the generated
+[thesis draft](thesis.docx).
+
 ## Known hard constraints
 
 These are documented at length in `docs/METHODOLOGICAL_RISKS.md`. The three that
